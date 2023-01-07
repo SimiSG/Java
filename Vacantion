@@ -1,0 +1,50 @@
+import java.util.Scanner;
+
+public class Vacantion03 {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        int group = Integer.parseInt(scanner.nextLine());
+        String typeGroup = scanner.nextLine();
+        String Day = scanner.nextLine();
+        double totalPrice = 0;
+        if (typeGroup.equals("Students")) {
+            if (Day.equals("Friday")) {
+                totalPrice = group * 8.45;
+            } else if (Day.equals("Saturday")) {
+                totalPrice = group * 9.80;
+            } else if (Day.equals("Sunday")) {
+                totalPrice = group * 10.46;
+            }
+            if (group >= 30) {
+                totalPrice = totalPrice - (totalPrice * 0.15);
+            }
+
+
+        } else if (typeGroup.equals("Business")) {
+            if (Day.equals("Friday")) {
+                totalPrice = group * 10.90;
+            } else if (Day.equals("Saturday")) {
+                totalPrice = group * 15.60;
+            } else if (Day.equals("Sunday")) {
+                totalPrice = group * 16;
+            }
+            if (group >= 100) {
+                totalPrice = totalPrice-((group - 10) * totalPrice);
+            }
+        } else if (typeGroup.equals("Regular")) {
+            if (Day.equals("Friday")) {
+                totalPrice = group * 15;
+            } else if (Day.equals("Saturday")) {
+                totalPrice = group * 20;
+            } else if (Day.equals("Sunday")) {
+                totalPrice = group * 22.50;
+            }
+            if (group >= 10 && group <= 20) {
+                totalPrice = totalPrice - (totalPrice * 0.05);
+            }
+
+        }
+        System.out.printf("Total price: %.2f", totalPrice);
+    }
+}
+
